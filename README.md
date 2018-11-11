@@ -7,3 +7,7 @@ Entregable de ejercicio de Listas y Listas Ordenadas en las dos versiones del ej
 - Dentro de 'Lista', creamos los ficheros 'lista.html' y 'lista.js'; dentro de este último, implementamos las funciones requeridas, usando los métodos de los arrays.
 - Dentro de 'Lista_Ordenada', creamos los ficheros 'lista_ordenada.html' y 'lista_ordenada.js'; dentro de este último, implementamos las funciones requeridas, usando los métodos de los arrays.
 - Modificación del 'README.md'.
+
+# Versión 1.1
+
+- Creación de la carpeta 'VERSIÓN SIN MÉTODOS', con dos subcarpetas, 'Lista' y 'Lista_Ordenada', donde almacenaremos los ejercicios propuesto, esta vez, sin emplear los métodos de los arrays.
