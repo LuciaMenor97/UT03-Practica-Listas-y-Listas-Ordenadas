@@ -7,6 +7,7 @@ function cleanData() {
 }
 
 
+//Función para añadir un número a la lista
 function addNumber(num) {
     var error = document.getElementById("error");
     var mostrar_lista = document.getElementById("mostrar_lista");
@@ -20,6 +21,7 @@ function addNumber(num) {
 }
 
 
+//Función para eliminar un número de la lista
 function removeNumber(num) {
     var error = document.getElementById("error");
     var mostrar_lista = document.getElementById("mostrar_lista");
@@ -55,7 +57,7 @@ function isFull(lista) {
 }
 
 
-//DeVuelve el número de elementos de la lista.
+//Devuelve el número de elementos de la lista.
 function size(lista) {
     return lista.length;
 }
@@ -66,23 +68,23 @@ function size(lista) {
  */
 function add(lista, elemento) {
     elemento = parseInt(elemento);
-    if (isNaN(elemento)) {
+    if (isNaN(elemento)) { //si el elemento no es un number
         throw "El elemento no es un number";
     }
-    if (!isFull(lista)) {
-        lista.push(elemento); //Añadimos el nuevo elemento.
-        lista = lista.sort(function (a, b) { return a - b });
+    if (!isFull(lista)) { //si la lista no está vacía
+        lista.push(elemento); //añadimos el nuevo elemento
+        lista = lista.sort(function (a, b) { return a - b }); //ordenamos la lista
     } else {
         throw "La lista está llena. No puedes meter elementos en ella.";
     }
-    return size(lista);
+    return size(lista); //devolvemos el tamaño de la lista
 }
 
 
 //Devuelve el elemento de la lista de la posición indicada.
 function get(lista, indice) {
 
-    if (indice >= size(lista)) { //si el índice es mayor que el tamaño de la lista
+    if (indice >= size(lista)) { //si el índice es mayor o igual que el tamaño de la lista
         throw "El índice está fuera de los límites de la lista.";
     } else {
         return lista[indice]; //devolvemos el elemento 
@@ -111,16 +113,16 @@ function toString(lista) {
  * Si el elemento no está en la lista devuelve -1.
  */
 function indexOf(lista, elemento) {
-    var posicion = -1;
+    var posicion = -1; //inicializamos la variable posición a -1
     elemento = parseInt(elemento);
-    if (!isNaN(elemento)) {
-        if (!isEmpty(lista)) {
-            posicion = lista.indexOf(elemento);
+    if (!isNaN(elemento)) { //si el elemento es un number
+        if (!isEmpty(lista)) { //y la lista no está vacía
+            posicion = lista.indexOf(elemento); //a posición le asignamos la posición del elemento pasado
         }
     } else {
         throw "El elemento no es un number";
     }
-    return posicion;
+    return posicion; //devolvemos la posición
 }
 
 
@@ -133,7 +135,7 @@ function capacity(lista) {
 //Vacía la lista.
 function clear(lista) {
     if (!isEmpty(lista)) { //si la lista no está vacía
-        lista.splice(0, lista.length); //eliminamos la lista completa desde la posición 0
+        lista.splice(0, lista.length); //eliminamos la lista completa a partir de la posición 0
     }
 }
 
@@ -141,26 +143,26 @@ function clear(lista) {
 //Devuelve el primer elemento de la lista.
 function firstElement(lista) {
     var primero;
-    if (!isEmpty(lista)) {
-        primero = lista[0];
+    if (!isEmpty(lista)) { //si la lista no está vacía
+        primero = lista[0]; //a primero le asignmos el valor de la primera posición
     } else {
         throw "La lista está vacía";
     }
 
-    return primero;
+    return primero; //devolvemos el primero elemento
 }
 
 
 //Devuelve el último elemento de la lista.
 function lastElement(lista) {
     var ultimo;
-    if (!isEmpty(lista)) {
-        ultimo = lista[size(lista) - 1];
+    if (!isEmpty(lista)) { //si la lista no está vacía
+        ultimo = lista[size(lista) - 1]; //a ultimo le asignamos el valor de la última posición
     } else {
         throw "La lista está vacía";
     }
 
-    return ultimo;
+    return ultimo; //devolvemos el último elemento
 }
 
 
@@ -171,7 +173,7 @@ function remove(lista, indice) {
     if (indice > size(lista)) { //si el índice es mayor que el tamaño de la lista
         throw "El índice está fuera de los límites de la lista";
     } else {
-        return eliminado = lista.splice(indice, 1);
+        return eliminado = lista.splice(indice, 1); //devolvemos el elemento que ha sido eliminado
     }
 }
 
@@ -181,12 +183,12 @@ function remove(lista, indice) {
  * false en caso contrario.
  */
 function removeElement(lista, elemento) {
-    if (isNaN(elemento)) {
+    if (isNaN(elemento)) { //si el elemento no es un number
         throw "El elemento no es un number";
     }
 
-    if (!isNaN(elemento)) {
-        if (!isEmpty(lista)) {
+    if (!isNaN(elemento)) { //si el elemento es un number
+        if (!isEmpty(lista)) { //y la lista no está vacía
             var posicion = indexOf(lista, elemento); //guardamos la posición del número pasado 
             if (posicion == -1) { //si la posición es -1, devolvemos FALSE
                 return false;
@@ -205,6 +207,7 @@ function removeElement(lista, elemento) {
 function test() {
     var lista2 = [];
 
+    //Añadimos valores a la lista
     try {
         for (var i = 0; i < 3; i++) {
             console.log("Nº de elementos: " + add(lista2, i * 10));
